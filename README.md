@@ -1,2 +1,2 @@
-# coding-solutions
+# YG-coding-solutions
 Coding solutions auto-synced by PushMyCode
