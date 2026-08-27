@@ -1,4 +1,4 @@
-# Bit Array
+# Box It!
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -60,40 +60,67 @@ Two boxes being compared using the $<$ operator will not have all three dimensio
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-27T06:33:33.950Z  
+**Submitted:** 2026-08-27T06:39:43.637Z  
 
 ```cpp
-#include <iostream>
+
+#include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    unsigned int N, S, P, Q;
-    cin >> N >> S >> P >> Q;
+class Box {
+private:
+    int l, b, h;
 
-    const unsigned int MASK = 0x7FFFFFFF;
-    const int SIZE = 1 << 26;
-
-    static unsigned int bits[SIZE];
-
-    unsigned int count = 0;
-    unsigned int x = S;
-
-    for (unsigned int i = 0; i < N; i++) {
-        unsigned int index = x >> 5;
-        unsigned int bit = 1u << (x & 31);
-
-        if (!(bits[index] & bit)) {
-            bits[index] |= bit;
-            count++;
-        }
-
-        x = (x * P + Q) & MASK;
+public:
+    Box() {
+        l = b = h = 0;
     }
 
-    cout << count;
+    Box(int length, int breadth, int height) {
+        l = length;
+        b = breadth;
+        h = height;
+    }
 
-    return 0;
-}
+    Box(Box &B) {
+        l = B.l;
+        b = B.b;
+        h = B.h;
+    }
+
+    int getLength() {
+        return l;
+    }
+
+    int getBreadth() {
+        return b;
+    }
+
+    int getHeight() {
+        return h;
+    }
+
+    long long CalculateVolume() {
+        return 1LL * l * b * h;
+    }
+
+    bool operator<(Box &B) {
+        if (l < B.l)
+            return true;
+        if (l == B.l && b < B.b)
+            return true;
+        if (l == B.l && b == B.b && h < B.h)
+            return true;
+
+        return false;
+    }
+
+    friend ostream& operator<<(ostream& out, Box& B) {
+        out << B.l << " " << B.b << " " << B.h;
+        return out;
+    }
+};
+
 
 ```
 
