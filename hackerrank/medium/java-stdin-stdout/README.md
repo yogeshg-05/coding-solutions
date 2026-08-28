@@ -1,4 +1,4 @@
-# Java If-Else
+# Java Stdin and Stdout II
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -37,28 +37,25 @@ To make the problem easier, a portion of the code is already provided in the edi
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-28T13:21:14.965Z  
+**Submitted:** 2026-08-28T13:22:30.480Z  
 
 ```java
-import java.util.*;
+import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
 
-        int n = scanner.nextInt();
+        int i = scan.nextInt();
+        double d = scan.nextDouble();
+        scan.nextLine();
+        String s = scan.nextLine();
 
-        if (n % 2 != 0) {
-            System.out.println("Weird");
-        } else if (n >= 2 && n <= 5) {
-            System.out.println("Not Weird");
-        } else if (n >= 6 && n <= 20) {
-            System.out.println("Weird");
-        } else {
-            System.out.println("Not Weird");
-        }
+        System.out.println("String: " + s);
+        System.out.println("Double: " + d);
+        System.out.println("Int: " + i);
 
-        scanner.close();
+        scan.close();
     }
 }
 
