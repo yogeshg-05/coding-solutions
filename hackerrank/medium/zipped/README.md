@@ -1,4 +1,4 @@
-# Default Arguments
+# Zipped!
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -65,47 +65,18 @@ The averages must be correct up to $1$ decimal place.
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-28T13:14:33.224Z  
+**Submitted:** 2026-08-28T13:16:41.434Z  
 
 ```py
-class EvenStream(object):
-    def __init__(self):
-        self.current = 0
+N, X = map(int, input().split())
 
-    def get_next(self):
-        ret = self.current
-        self.current += 2
-        return ret
+marks = []
 
+for _ in range(X):
+    marks.append(list(map(float, input().split())))
 
-class OddStream(object):
-    def __init__(self):
-        self.current = 1
-
-    def get_next(self):
-        ret = self.current
-        self.current += 2
-        return ret
-
-
-def print_from_stream(n, stream=None):
-    if stream is None:
-        stream = EvenStream()
-
-    for _ in range(n):
-        print(stream.get_next())
-
-
-q = int(input())
-
-for _ in range(q):
-    stream_name, n = input().split()
-    n = int(n)
-
-    if stream_name == "even":
-        print_from_stream(n)
-    else:
-        print_from_stream(n, OddStream())
+for student in zip(*marks):
+    print(sum(student) / X)
 
 ```
 
