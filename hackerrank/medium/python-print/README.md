@@ -1,4 +1,4 @@
-# Loops
+# Print Function
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -38,13 +38,13 @@ Print the list of integers from $1$ through $n$ as a string, without spaces.
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-28T13:07:12.084Z  
+**Submitted:** 2026-08-28T13:08:18.232Z  
 
 ```py
 if __name__ == '__main__':
     n = int(input())
-    for i in range(n):
-        print(i * i)
+    for i in range(1, n + 1):
+        print(i, end='')
 
 ```
 
