@@ -1,4 +1,38 @@
-if __name__ == '__main__':
-    n = int(input())
-    for i in range(1, n + 1):
-        print(i, end='')
+class EvenStream(object):
+    def __init__(self):
+        self.current = 0
+
+    def get_next(self):
+        ret = self.current
+        self.current += 2
+        return ret
+
+
+class OddStream(object):
+    def __init__(self):
+        self.current = 1
+
+    def get_next(self):
+        ret = self.current
+        self.current += 2
+        return ret
+
+
+def print_from_stream(n, stream=None):
+    if stream is None:
+        stream = EvenStream()
+
+    for _ in range(n):
+        print(stream.get_next())
+
+
+q = int(input())
+
+for _ in range(q):
+    stream_name, n = input().split()
+    n = int(n)
+
+    if stream_name == "even":
+        print_from_stream(n)
+    else:
+        print_from_stream(n, OddStream())
