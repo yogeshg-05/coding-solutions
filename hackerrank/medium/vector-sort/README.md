@@ -1,4 +1,4 @@
-# Magic Spells
+# Vector-Sort
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -45,49 +45,33 @@ Print the integers in the sorted order one by one in a single line followed by a
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-29T14:53:15.962Z  
+**Submitted:** 2026-08-29T14:55:01.850Z  
 
 ```cpp
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
 
 
-  if (Fireball *fb = dynamic_cast<Fireball*>(spell))
-{
-    fb->revealFirepower();
-}
-else if (Frostbite *fb = dynamic_cast<Frostbite*>(spell))
-{
-    fb->revealFrostpower();
-}
-else if (Thunderstorm *ts = dynamic_cast<Thunderstorm*>(spell))
-{
-    ts->revealThunderpower();
-}
-else if (Waterbolt *wb = dynamic_cast<Waterbolt*>(spell))
-{
-    wb->revealWaterpower();
-}
-else
-{
-    string s1 = spell->revealScrollName();
-    string s2 = SpellJournal::read();
+int main() {
+     int N;
+    cin >> N;
 
-    int n = s1.length();
-    int m = s2.length();
+    vector<int> v(N);
 
-    vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
-
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= m; j++)
-        {
-            if (s1[i - 1] == s2[j - 1])
-                dp[i][j] = dp[i - 1][j - 1] + 1;
-            else
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
-        }
+    for (int i = 0; i < N; i++) {
+        cin >> v[i];
     }
 
-    cout << dp[n][m] << endl;
+    sort(v.begin(), v.end());
+
+    for (int i = 0; i < N; i++) {
+        cout << v[i] << " ";
+    }
+    return 0;
 }
 
 ```
