@@ -1,4 +1,4 @@
-# StringStream
+# Accessing Inherited Functions
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -148,40 +148,43 @@ $1 \le $ *new\_val* $\le 10000 $
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-29T11:40:34.755Z  
+**Submitted:** 2026-08-29T14:51:00.416Z  
 
 ```cpp
-#include <sstream>
-#include <vector>
-#include <iostream>
-using namespace std;
 
-vector<int> parseInts(string str) {
-    vector<int> result;
-    stringstream ss(str);
-    int num;
-    char comma;
+class D : public A, public B, public C
+{
+    int val;
 
-    while (ss >> num) {
-        result.push_back(num);
-        ss >> comma;
+public:
+    D()
+    {
+        val = 1;
     }
 
-    return result;
-}
+    void update_val(int new_val)
+    {
+        while (new_val % 2 == 0)
+        {
+            A::func(val);
+            new_val /= 2;
+        }
 
-int main() {
-    string str;
-    cin >> str;
+        while (new_val % 3 == 0)
+        {
+            B::func(val);
+            new_val /= 3;
+        }
 
-    vector<int> integers = parseInts(str);
-
-    for (int i = 0; i < integers.size(); i++) {
-        cout << integers[i] << "\n";
+        while (new_val % 5 == 0)
+        {
+            C::func(val);
+            new_val /= 5;
+        }
     }
 
-    return 0;
-}
+    void check(int); // Do not delete this line.
+};
 
 ```
 
