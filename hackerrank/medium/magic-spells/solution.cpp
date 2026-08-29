@@ -1,34 +1,41 @@
 
-class D : public A, public B, public C
+
+  if (Fireball *fb = dynamic_cast<Fireball*>(spell))
 {
-    int val;
+    fb->revealFirepower();
+}
+else if (Frostbite *fb = dynamic_cast<Frostbite*>(spell))
+{
+    fb->revealFrostpower();
+}
+else if (Thunderstorm *ts = dynamic_cast<Thunderstorm*>(spell))
+{
+    ts->revealThunderpower();
+}
+else if (Waterbolt *wb = dynamic_cast<Waterbolt*>(spell))
+{
+    wb->revealWaterpower();
+}
+else
+{
+    string s1 = spell->revealScrollName();
+    string s2 = SpellJournal::read();
 
-public:
-    D()
+    int n = s1.length();
+    int m = s2.length();
+
+    vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
+
+    for (int i = 1; i <= n; i++)
     {
-        val = 1;
+        for (int j = 1; j <= m; j++)
+        {
+            if (s1[i - 1] == s2[j - 1])
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            else
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+        }
     }
 
-    void update_val(int new_val)
-    {
-        while (new_val % 2 == 0)
-        {
-            A::func(val);
-            new_val /= 2;
-        }
-
-        while (new_val % 3 == 0)
-        {
-            B::func(val);
-            new_val /= 3;
-        }
-
-        while (new_val % 5 == 0)
-        {
-            C::func(val);
-            new_val /= 5;
-        }
-    }
-
-    void check(int); // Do not delete this line.
-};
+    cout << dp[n][m] << endl;
+}
