@@ -1,31 +1,34 @@
-#include <sstream>
-#include <vector>
-#include <iostream>
-using namespace std;
 
-vector<int> parseInts(string str) {
-    vector<int> result;
-    stringstream ss(str);
-    int num;
-    char comma;
+class D : public A, public B, public C
+{
+    int val;
 
-    while (ss >> num) {
-        result.push_back(num);
-        ss >> comma;
+public:
+    D()
+    {
+        val = 1;
     }
 
-    return result;
-}
+    void update_val(int new_val)
+    {
+        while (new_val % 2 == 0)
+        {
+            A::func(val);
+            new_val /= 2;
+        }
 
-int main() {
-    string str;
-    cin >> str;
+        while (new_val % 3 == 0)
+        {
+            B::func(val);
+            new_val /= 3;
+        }
 
-    vector<int> integers = parseInts(str);
-
-    for (int i = 0; i < integers.size(); i++) {
-        cout << integers[i] << "\n";
+        while (new_val % 5 == 0)
+        {
+            C::func(val);
+            new_val /= 5;
+        }
     }
 
-    return 0;
-}
+    void check(int); // Do not delete this line.
+};
