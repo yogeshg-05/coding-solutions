@@ -1,4 +1,4 @@
-# Vector-Sort
+# Vector-Erase
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -39,7 +39,7 @@ Print the size of the vector in the first line and the elements of the vector af
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-29T14:55:07.623Z  
+**Submitted:** 2026-08-29T14:57:28.195Z  
 
 ```cpp
 #include <cmath>
@@ -51,7 +51,7 @@ using namespace std;
 
 
 int main() {
-     int N;
+    int N;
     cin >> N;
 
     vector<int> v(N);
@@ -60,11 +60,21 @@ int main() {
         cin >> v[i];
     }
 
-    sort(v.begin(), v.end());
+    int x;
+    cin >> x;
 
-    for (int i = 0; i < N; i++) {
+    v.erase(v.begin() + x - 1);
+
+    int a, b;
+    cin >> a >> b;
+
+    v.erase(v.begin() + a - 1, v.begin() + b - 1);
+
+    cout << v.size() << endl;
+
+    for (int i = 0; i < v.size(); i++) {
         cout << v[i] << " ";
-    }
+    }   
     return 0;
 }
 
