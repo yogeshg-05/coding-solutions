@@ -5,7 +5,7 @@
     2. The AS keyword causes errors, so follow this convention: "Select t.Field From table1 t" instead of "select t.Field From table1 AS t"
     3. Type your code immediately after comment. Don't leave any blank line.
 */
-SELECT t.*
+SELECT DISTINCT t.NAME
 FROM CITY t
-WHERE t.POPULATION > 100000
-  AND t.COUNTRYCODE = 'USA';
+WHERE t.COUNTRYCODE = 'USA'
+AND t.POPULATION > 120000;
