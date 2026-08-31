@@ -1,4 +1,4 @@
-# Revising the Select Query I
+# Revising the Select Query II
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -24,7 +24,7 @@ The **CITY** table is described as follows:
 **Language:** db2  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T12:16:40.028Z  
+**Submitted:** 2026-08-31T12:19:55.474Z  
 
 ```db2
 
@@ -34,10 +34,10 @@ The **CITY** table is described as follows:
     2. The AS keyword causes errors, so follow this convention: "Select t.Field From table1 t" instead of "select t.Field From table1 AS t"
     3. Type your code immediately after comment. Don't leave any blank line.
 */
-SELECT t.*
+SELECT DISTINCT t.NAME
 FROM CITY t
-WHERE t.POPULATION > 100000
-  AND t.COUNTRYCODE = 'USA';
+WHERE t.COUNTRYCODE = 'USA'
+AND t.POPULATION > 120000;
 
 ```
 
