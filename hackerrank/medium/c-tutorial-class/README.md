@@ -1,4 +1,4 @@
-# Structs
+# Class
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -77,27 +77,54 @@ The code provided by HackerRank will use your class members to set and then get 
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-05T06:20:06.869Z  
+**Submitted:** 2026-09-05T06:22:26.662Z  
 
 ```cpp
-#include <cmath>
-#include <cstdio>
-#include <vector>
 #include <iostream>
-#include <algorithm>
+#include <sstream>
 using namespace std;
 
-struct Student {
-    int age;
-    string first_name;
-    string last_name;
-    int standard;
+class Student {
+    int age, standard;
+    string first_name, last_name;
+
+public:
+    void set_age(int a){ age=a; }
+    int get_age(){ return age; }
+
+    void set_standard(int s){ standard=s; }
+    int get_standard(){ return standard; }
+
+    void set_first_name(string f){ first_name=f; }
+    string get_first_name(){ return first_name; }
+
+    void set_last_name(string l){ last_name=l; }
+    string get_last_name(){ return last_name; }
+
+    string to_string(){
+        stringstream ss;
+        ss << age << "," << first_name << "," << last_name << "," << standard;
+        return ss.str();
+    }
 };
+
 int main() {
-    Student st;
+    int age, standard;
+    string first_name, last_name;
     
-    cin >> st.age >> st.first_name >> st.last_name >> st.standard;
-    cout << st.age << " " << st.first_name << " " << st.last_name << " " << st.standard;
+    cin >> age >> first_name >> last_name >> standard;
+    
+    Student st;
+    st.set_age(age);
+    st.set_standard(standard);
+    st.set_first_name(first_name);
+    st.set_last_name(last_name);
+    
+    cout << st.get_age() << "\n";
+    cout << st.get_last_name() << ", " << st.get_first_name() << "\n";
+    cout << st.get_standard() << "\n";
+    cout << "\n";
+    cout << st.to_string();
     
     return 0;
 }
