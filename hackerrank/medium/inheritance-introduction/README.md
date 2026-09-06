@@ -1,0 +1,80 @@
+# Strings
+
+![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
+
+## Problem
+
+One of the important topics of Object Oriented Programming is Inheritance. Inheritance allows us to define a class in terms of another class, which allows us in the reusability of the code.Check out the code below:
+
+	class Triangle{
+    	public:
+    		void triangle(){
+        		cout<<"I am a triangle\n";
+        	}
+    };
+
+The class Triangle has a function called triangle(). Now we create a class derived from the base class Triangle called Isosceles.
+
+	class Isosceles : public Triangle{
+    	public:
+	    	void isosceles(){
+    	    	cout<<"I am an isosceles triangle\n";
+        	}
+    };
+
+Now we can create a derived class object and use it to access the functions of the base class.
+
+	int main(){
+    	Isosceles isc;
+        isc.isosceles();
+        isc.triangle();
+        return 0;
+    }
+    
+This code will print:
+
+	I am an isosceles triangle
+    I am a triangle
+    
+Now write a function in Isosceles class such that the output is as given below.
+
+**Input Format**
+
+ 
+
+**Constraints**
+
+ 
+
+**Output Format**
+
+## Solution
+
+**Language:** C++  
+**Runtime:** N/A  
+**Memory:** N/A  
+**Submitted:** 2026-09-06T09:34:01.065Z  
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string a, b;
+    cin >> a >> b;
+
+    cout << a.length() << " " << b.length() << endl;
+    cout << a + b << endl;
+
+    swap(a[0], b[0]);
+    cout << a << " " << b << endl;
+
+    return 0;
+}
+
+```
+
+---
+
+[View on HackerRank](https://www.hackerrank.com/challenges/inheritance-introduction/problem)
