@@ -1,4 +1,4 @@
-# Strings
+# Inheritance Introduction
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -53,23 +53,39 @@ Now write a function in Isosceles class such that the output is as given below.
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-06T09:34:01.065Z  
+**Submitted:** 2026-09-06T09:36:36.473Z  
 
 ```cpp
+#include <cmath>
+#include <cstdio>
+#include <vector>
 #include <iostream>
-#include <string>
+#include <algorithm>
 using namespace std;
 
+class Triangle {
+public:
+    void triangle() {
+        cout << "I am a triangle\n";
+    }
+};
+
+class Isosceles : public Triangle {
+public:
+    void isosceles() {
+        cout << "I am an isosceles triangle\n";
+    }
+
+    void description() {
+        cout << "In an isosceles triangle two sides are equal\n";
+    }
+};
+
 int main() {
-    string a, b;
-    cin >> a >> b;
-
-    cout << a.length() << " " << b.length() << endl;
-    cout << a + b << endl;
-
-    swap(a[0], b[0]);
-    cout << a << " " << b << endl;
-
+    Isosceles isc;
+    isc.isosceles();
+    isc.description();
+    isc.triangle();
     return 0;
 }
 
