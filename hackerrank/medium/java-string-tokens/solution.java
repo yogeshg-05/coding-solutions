@@ -1,19 +1,21 @@
+import java.io.*;
+import java.util.*;
 
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
 
-    static boolean isAnagram(String a, String b) {
-    a = a.toLowerCase();
-    b = b.toLowerCase();
+        String[] tokens = s.trim().split("[^A-Za-z]+");
 
-    if (a.length() != b.length())
-        return false;
+        if (s.trim().isEmpty()) {
+            System.out.println(0);
+        } else {
+            System.out.println(tokens.length);
+            for (String token : tokens)
+                System.out.println(token);
+        }
 
-    char[] x = a.toCharArray();
-    char[] y = b.toCharArray();
-
-    java.util.Arrays.sort(x);
-    java.util.Arrays.sort(y);
-
-    return java.util.Arrays.equals(x, y);
-
+        scan.close();
     }
-
+}
