@@ -37,7 +37,7 @@ The second line contains a string $b$.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-12T07:08:13.947Z  
+**Submitted:** 2026-09-13T15:26:59.557Z  
 
 ```java
 
