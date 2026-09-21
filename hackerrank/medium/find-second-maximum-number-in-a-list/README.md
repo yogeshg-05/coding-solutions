@@ -1,4 +1,4 @@
-# List Comprehensions
+# Find the Runner-Up Score!
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -31,22 +31,17 @@ Print the runner-up score.
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T14:15:23.219Z  
+**Submitted:** 2026-09-21T18:03:53.855Z  
 
 ```py
 if __name__ == '__main__':
-    x = int(input())
-    y = int(input())
-    z = int(input())
     n = int(input())
+    arr = list(map(int, input().split()))
 
-    result = [[i, j, k]
-              for i in range(x + 1)
-              for j in range(y + 1)
-              for k in range(z + 1)
-              if i + j + k != n]
+    unique = list(set(arr))
+    unique.sort()
 
-    print(result)
+    print(unique[-2])
 
 ```
 
