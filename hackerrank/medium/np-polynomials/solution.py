@@ -1,13 +1,7 @@
-A = set(map(int, input().split()))
-n = int(input())
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import numpy as np
 
-result = True
+P = list(map(float, input().split()))
+x = float(input())
 
-for _ in range(n):
-    other = set(map(int, input().split()))
-    
-    if not (A > other):
-        result = False
-        break
-
-print(result)
+print(np.polyval(P, x))
