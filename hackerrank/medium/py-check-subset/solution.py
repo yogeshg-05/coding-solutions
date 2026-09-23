@@ -1,14 +1,8 @@
-if __name__ == '__main__':
+for _ in range(int(input())):
     n = int(input())
-    student_marks = {}
+    A = set(map(int, input().split()))
 
-    for _ in range(n):
-        name, *line = input().split()
-        scores = list(map(float, line))
-        student_marks[name] = scores
+    m = int(input())
+    B = set(map(int, input().split()))
 
-    query_name = input()
-
-    average = sum(student_marks[query_name]) / len(student_marks[query_name])
-
-    print(f"{average:.2f}")
+    print(A.issubset(B))
