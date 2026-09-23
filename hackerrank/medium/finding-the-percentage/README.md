@@ -33,7 +33,7 @@ Print one line: The average of the marks obtained by the particular student corr
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T12:36:07.590Z  
+**Submitted:** 2026-09-23T17:14:14.276Z  
 
 ```py
 if __name__ == '__main__':
