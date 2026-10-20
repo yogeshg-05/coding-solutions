@@ -64,7 +64,7 @@ Return an integer denoting the sum of all possible sortable integers `k`.
 **Language:** C++  
 **Runtime:** 69 ms (beats 67.65%)  
 **Memory:** 88.3 MB (beats 96.32%)  
-**Submitted:** 2026-10-20T15:06:57.919Z  
+**Submitted:** 2026-10-20T15:19:15.690Z  
 
 ```cpp
 class Solution {
